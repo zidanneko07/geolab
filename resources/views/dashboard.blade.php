@@ -252,13 +252,7 @@
             <div class="menu-title">Proses</div>
             <div class="row g-3">
                 <div class="col-6">
-                    <a href="{{ route('hasil.pengujian') }}" style="text-decoration:none;">
-                        <div class="menu-card green">
-                            <span class="notif">1</span>
-                            <i class="fa-solid fa-microscope icon"></i>
-                            <span class="label">Hasil Pengujian</span>
-                        </div>
-                    </a>
+                    <!-- Menu Hasil Pengujian dihapus karena sudah tidak tersedia -->
                 </div>
                 <div class="col-6">
                     <div class="menu-card purple">
