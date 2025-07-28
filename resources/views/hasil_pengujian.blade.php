@@ -3,136 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Detail Hasil Pengujian Lab - GEOLAB</title>
+    <title>Hasil Pengujian Lab - GEOLAB</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background: #d6f5d6;
             font-family: Arial, sans-serif;
         }
-        .container {
-            background: #fff;
-            width: 370px;
-            margin: 40px auto;
+        .main-container {
+            max-width: 420px;
+            margin: 32px auto;
+            padding: 24px 0;
+        }
+        .card {
             border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding: 20px 16px 16px 16px;
-            text-align: left;
+            padding: 20px 18px 16px 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            position: relative;
         }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
+        .card-survey {
+            background: #fffcd6;
         }
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .card-result {
+            background: #d6f8e3;
         }
-        .back-btn {
-            background: #ededf5;
-            border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 1.3em;
-            color: #5a5ad6;
-            margin-right: 8px;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            display: flex;
-            align-items: center;
-        }
-        .logo-text {
-            font-size: 1.25rem;
+        .card-header {
             font-weight: bold;
-            color: #222;
-            letter-spacing: 1px;
+            font-size: 1.08em;
+            margin-bottom: 2px;
         }
-        .header-icons {
-            display: flex;
-            align-items: center;
-            gap: 18px;
+        .card-desc {
+            color: #555;
+            font-size: 1.01em;
+            margin-bottom: 8px;
         }
-        .menu, .search {
-            font-size: 1.5em !important;
+        .card-date {
             color: #888;
-            cursor: pointer;
+            font-size: 0.97em;
+            margin-bottom: 14px;
+        }
+        .card-action {
             display: flex;
             align-items: center;
+            gap: 10px;
+            margin-top: 8px;
         }
-        .section-title {
-            font-weight: bold;
-            margin: 18px 0 10px 0;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .section-title i {
+        .icon-survey {
+            color: #3b4ed8;
             font-size: 1.5em;
         }
-        .kode {
-            font-weight: bold;
-            font-size: 1.12rem;
-            margin-bottom: 2px;
+        .icon-download {
+            color: #3b4ed8;
+            font-size: 1.5em;
         }
-        .judul {
-            font-size: 1.05rem;
-            margin-bottom: 2px;
-        }
-        .tanggal {
-            color: #888;
-            font-size: 1.01rem;
-            margin-bottom: 10px;
-        }
-        .hasil-title {
-            font-weight: bold;
-            margin: 18px 0 8px 0;
-            font-size: 1.08rem;
-        }
-        .hasil-img {
-            width: 100%;
-            max-width: 320px;
-            display: block;
-            margin: 0 auto 18px auto;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        .survey-info {
-            margin: 18px 0 10px 0;
-            color: #444;
-            font-size: 1.04rem;
-        }
-        .survey-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #3737b4;
-            color: #fff;
-            font-weight: 500;
-            font-size: 1.13rem;
-            border: none;
-            border-radius: 8px;
-            padding: 13px 0;
-            width: 100%;
-            margin: 0 auto 0 auto;
-            cursor: pointer;
-            transition: background 0.2s;
-            text-decoration: none;
-        }
-        .survey-btn i {
+        .stars {
+            margin-left: auto;
+            color: #ffe066;
             font-size: 1.2em;
+            letter-spacing: 2px;
         }
-        .footer {
-            text-align: center;
-            color: #bbb;
-            font-size: 1.01rem;
-            margin-top: 24px;
+        .notif {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: #f44;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 10px;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
         }
         @media (max-width: 480px) {
-            .container {
+            .main-container {
                 width: 98vw;
                 min-width: unset;
                 padding: 10px 2vw 10px 2vw;
@@ -141,35 +85,58 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-left">
-                <button class="back-btn" onclick="window.history.back()"><i class="fas fa-arrow-left"></i></button>
-                <span class="logo-text">GEOLAB</span>
+    <div class="main-container">
+        <!-- Card 1: Survei -->
+        <div class="card card-survey">
+            <div class="card-header">UOIX-12982</div>
+            <div class="card-desc">Uji sampel mollusca dari pantai seribu</div>
+            <div class="card-date">16 November 2024 10:30 WIB</div>
+            <div class="card-action">
+                <span class="icon-survey"><i class="fa-solid fa-newspaper"></i></span>
+                <span>Survei</span>
             </div>
-            <div class="header-icons">
-                <span class="menu"><i class="fas fa-bars"></i></span>
-                <span class="search"><i class="fas fa-search"></i></span>
+        </div>
+        <!-- Card 2: Hasil 1 -->
+        <div class="card card-result">
+            <span class="notif">1</span>
+            <div class="card-header">UOIX-12982</div>
+            <div class="card-desc">Uji sampel mollusca dari pantai seribu</div>
+            <div class="card-date">16 November 2024 10:30 WIB</div>
+            <div class="card-action">
+                <span class="icon-download"><i class="fa-solid fa-download"></i></span>
+                <span>Download</span>
+                <span class="stars">
+                    <span style="color:#ffe066">&#9733;&#9733;</span><span style="color:#bbb">&#9733;&#9733;&#9733;</span>
+                </span>
             </div>
         </div>
-        <div class="section-title">
-            <i class="fa-solid fa-microscope"></i>
-            Hasil Pengujian Lab
+        <!-- Card 3: Hasil 2 -->
+        <div class="card card-result">
+            <span class="notif">1</span>
+            <div class="card-header">UOIX-12982</div>
+            <div class="card-desc">Uji sampel mollusca dari pantai seribu</div>
+            <div class="card-date">16 November 2024 10:30 WIB</div>
+            <div class="card-action">
+                <span class="icon-download"><i class="fa-solid fa-download"></i></span>
+                <span>Download</span>
+                <span class="stars">
+                    <span style="color:#ffe066">&#9733;&#9733;</span><span style="color:#bbb">&#9733;&#9733;&#9733;</span>
+                </span>
+            </div>
         </div>
-        <div class="kode">UOIX-12982</div>
-        <div class="judul">Uji sampel mollusca dari pantai seribu</div>
-        <div class="tanggal">16 November 2024 10:30 WIB</div>
-        <div class="hasil-title">Hasil Uji</div>
-        <img src="https://i.ibb.co/6b6n6k2/lab-table-example.png" alt="Lab Report Table" class="hasil-img">
-        <div class="survey-info">
-            Silahkan isi survei berikut untuk mengunduh dokumen hasil uji lab anda.
-        </div>
-        <a href="#" class="survey-btn">
-            <i class="fa-solid fa-newspaper"></i>
-            Mulai Isi Survei
-        </a>
-        <div class="footer">
-            2024 (C) Copyright Pusat Survei Geologi
+        <!-- Card 4: Hasil 3 -->
+        <div class="card card-result">
+            <span class="notif">1</span>
+            <div class="card-header">UOIX-12982</div>
+            <div class="card-desc">Uji sampel mollusca dari pantai seribu</div>
+            <div class="card-date">16 November 2024 10:30 WIB</div>
+            <div class="card-action">
+                <span class="icon-download"><i class="fa-solid fa-download"></i></span>
+                <span>Download</span>
+                <span class="stars">
+                    <span style="color:#ffe066">&#9733;&#9733;</span><span style="color:#bbb">&#9733;&#9733;&#9733;</span>
+                </span>
+            </div>
         </div>
     </div>
 </body>
