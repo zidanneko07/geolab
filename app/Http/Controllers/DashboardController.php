@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index()
     {
         // Data dummy, nanti bisa diganti dengan query database
-        $user = auth()->user();
+        $user = (object)['name' => 'Demo User', 'email' => 'demo@example.com'];
         $sampelSedangProses = [
             (object)[ 'judul_lab' => 'Uji Sampel Batuan Vulkanik Tambora' ],
             (object)[ 'judul_lab' => 'Uji Sampel Fosil Mollusca Pantai Seribu' ],
