@@ -18,9 +18,11 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 // Route kelola hasil lab - hanya untuk operator
 Route::resource('kelola-hasil-lab', App\Http\Controllers\HasilLabController::class)->middleware(['auth', 'rolecustom:operator']);
+// Route untuk hasil pengujian - redirect ke kelola hasil lab
+Route::get('/hasil-pengujian', [App\Http\Controllers\HasilLabController::class, 'index'])->middleware('auth')->name('hasil.pengujian');
 
 Route::resource('data-pengelolaan', App\Http\Controllers\PenelitianController::class)->middleware('auth');
 Route::view('/laporan', 'laporan')->name('laporan');
